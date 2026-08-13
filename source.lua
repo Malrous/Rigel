@@ -260,6 +260,7 @@ local siriusValues = {
 		"vegax",
 		"cryptic",
 	},
+	uncRate = 
 	disconnectTypes = { { "ban", { "ban", "perm" } }, { "network", { "internet connection", "network" } } },
 	nameGeneration = {
 		adjectives = { "Cool", "Awesome", "Epic", "Ninja", "Super", "Mystic", "Swift", "Golden", "Diamond", "Silver", "Mint", "Roblox", "Amazing" },
