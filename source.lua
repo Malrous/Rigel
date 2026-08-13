@@ -1,6 +1,6 @@
 --[[
 
-Sirius
+Rigel
 
 © 2026 Corridon Capital. 
 All Rights Reserved.
@@ -9,7 +9,7 @@ All Rights Reserved.
 
 --[[
 
-Sirius Pre-Hyperion Todo List
+Rigel Pre-Hyperion Todo List 
 
 High Priority
  - Invisible, Godmode
@@ -17,7 +17,7 @@ High Priority
  - Chat Spam Detection
  - Custom Script Prompts
  - Player Kill, Spectate and ESP via Playerlist
- - http.request support for Sirius Intelligent HTTP Interception
+ - http.request support for Rigel Intelligent HTTP Interception
  - Performance Improvements to Roblox itself
  
 Moderate Priority
@@ -27,11 +27,11 @@ Moderate Priority
  - Chatlogs
  - GTA Serverhop
  - Anti-Spam (chat) formula, based on text length, caps, emojis etc.
- - Reduce any form of detection of Sirius
+ - Reduce any form of detection of Rigel
  - Automated lowering of graphics on lower FPS, ensure no false positives
  
 Potential Future Setting Options
- - Block entire domain or just the specific page in the Sirius Intelligent Flow Interception. Do this on case by case, e.g blocked = {"link.com", true} - true being whether its the domain or not
+ - Block entire domain or just the specific page in the Rigel Intelligent Flow Interception. Do this on case by case, e.g blocked = {"link.com", true} - true being whether its the domain or not
  - Serverhop type (default/gta)
  - Hook Specific Functions to reduce the need for external scripts
  
@@ -121,7 +121,7 @@ local function loadWithTimeout(url, timeout)
 
 	local timeoutThread = task.delay(timeout, function()
 		if not requestCompleted then
-			warn("Sirius | Request for " .. url .. " timed out after " .. tostring(timeout) .. " seconds")
+			warn("Rigel | Request for " .. url .. " timed out after " .. tostring(timeout) .. " seconds")
 			task.cancel(requestThread)
 			result = "Request timed out"
 			requestCompleted = true
@@ -137,14 +137,14 @@ local function loadWithTimeout(url, timeout)
 	end
 
 	if not success then
-		warn("Sirius | Failed to process " .. tostring(url) .. ": " .. tostring(result))
+		warn("Rigel | Failed to process " .. tostring(url) .. ": " .. tostring(result))
 		return nil
 	end
 
 	return result
 end
 
--- Every connection Sirius opens is registered here so teardown can close all of them at once.
+-- Every connection Rigel opens is registered here so teardown can close all of them at once.
 local connections = {}
 local function track(connection)
 	table.insert(connections, connection)
@@ -229,9 +229,9 @@ local placeName -- resolved once at startup so the JobId copy button never yield
 -- Configurable Core Values
 local siriusValues = {
 	siriusVersion = "1.28",
-	siriusName = "Sirius",
+	siriusName = "Rigel",
 	releaseType = "Stable",
-	siriusFolder = "Sirius",
+	siriusFolder = "Rigel",
 	settingsFile = "settings.srs",
 	interfaceAsset = 14183548964,
 	cdn = "https://cdn.sirius.menu/SIRIUS-SCRIPT-CORE-ASSETS/",
@@ -291,7 +291,7 @@ local siriusValues = {
 		pingNotificationCooldown = 0,
 		maxSamples = 12, -- max num of recent pings stored
 		spikeThreshold = 1.75, -- high Ping in comparison to average ping (e.g 100 avg would be high at 150)
-		adaptiveBaselineSamples = 30, -- how many samples Sirius takes before deciding on a fixed high ping value
+		adaptiveBaselineSamples = 30, -- how many samples Rigel takes before deciding on a fixed high ping value
 		adaptiveHighPingThreshold = 120, -- default value
 	},
 	frameProfile = {
@@ -507,13 +507,13 @@ local siriusValues = {
 local siriusSettings = {
 	{
 		name = "General",
-		description = "The general settings for Sirius, from simple to unique features.",
+		description = "The general settings for Rigel, from simple to unique features.",
 		color = Color3.new(0.117647, 0.490196, 0.72549),
 		minimumLicense = "Free",
 		categorySettings = {
 			{
 				name = "Anonymous Client",
-				description = "Randomise your username in real-time in any CoreGui parented interface, including Sirius. You will still appear as your actual name to others in-game. This setting can be performance intensive.",
+				description = "Randomise your username in real-time in any CoreGui parented interface, including Rigel. You will still appear as your actual name to others in-game. This setting can be performance intensive.",
 				settingType = "Boolean",
 				current = false,
 
@@ -521,7 +521,7 @@ local siriusSettings = {
 			},
 			{
 				name = "Chat Spy",
-				description = "Display whispers usually hidden from you in the chat box. This requires the legacy Roblox chat system; experiences on TextChatService route whispers through channels the client never receives, so Sirius will tell you when it is unavailable rather than silently doing nothing.",
+				description = "Display whispers usually hidden from you in the chat box. This requires the legacy Roblox chat system; experiences on TextChatService route whispers through channels the client never receives, so Rigel will tell you when it is unavailable rather than silently doing nothing.",
 				settingType = "Boolean",
 				current = true,
 
@@ -537,7 +537,7 @@ local siriusSettings = {
 			},
 			{
 				name = "Now Playing Notifications",
-				description = "When active, Sirius will notify you when the next song in your Music queue plays.",
+				description = "When active, Rigel will notify you when the next song in your Music queue plays.",
 				settingType = "Boolean",
 				current = true,
 
@@ -574,7 +574,7 @@ local siriusSettings = {
 			},
 			{
 				name = "Client-Based Anti Kick",
-				description = "Cancel any kick request involving you sent by the client. This may prompt detection from Adonis or similar anti-cheats. You will need to rejoin and re-run Sirius to toggle.",
+				description = "Cancel any kick request involving you sent by the client. This may prompt detection from Adonis or similar anti-cheats. You will need to rejoin and re-run Rigel to toggle.",
 				settingType = "Boolean",
 				current = false,
 
@@ -591,7 +591,7 @@ local siriusSettings = {
 	},
 	{
 		name = "Keybinds",
-		description = "Assign keybinds to actions or change keybinds such as the one to open/close Sirius.",
+		description = "Assign keybinds to actions or change keybinds such as the one to open/close Rigel.",
 		color = Color3.new(0.0941176, 0.686275, 0.509804),
 		minimumLicense = "Free",
 		categorySettings = {
@@ -735,13 +735,13 @@ local siriusSettings = {
 	},
 	{
 		name = "Performance",
-		description = "Tweak and test your performance settings for Roblox in Sirius.",
+		description = "Tweak and test your performance settings for Roblox in Rigel.",
 		color = Color3.new(1, 0.376471, 0.168627),
 		minimumLicense = "Free",
 		categorySettings = {
 			{
 				name = "Artificial FPS Limit",
-				description = "Sirius will automatically set your FPS to this number when you are tabbed-in to Roblox.",
+				description = "Rigel will automatically set your FPS to this number when you are tabbed-in to Roblox.",
 				settingType = "Number",
 				values = { 20, 5000 },
 				current = 240,
@@ -750,7 +750,7 @@ local siriusSettings = {
 			},
 			{
 				name = "Limit FPS while unfocused",
-				description = "Sirius will automatically set your FPS to 60 when you tab-out or unfocus from Roblox.",
+				description = "Rigel will automatically set your FPS to 60 when you tab-out or unfocus from Roblox.",
 				settingType = "Boolean", -- number for the cap below!! with min and max val
 				current = true,
 
@@ -758,7 +758,7 @@ local siriusSettings = {
 			},
 			{
 				name = "Adaptive Latency Warning",
-				description = "Sirius will check your average latency in the background and notify you if your current latency significantly goes above your average latency.",
+				description = "Rigel will check your average latency in the background and notify you if your current latency significantly goes above your average latency.",
 				settingType = "Boolean",
 				current = true,
 
@@ -766,7 +766,7 @@ local siriusSettings = {
 			},
 			{
 				name = "Adaptive Performance Warning",
-				description = "Sirius will check your average FPS in the background and notify you if your current FPS goes below a specific number.",
+				description = "Rigel will check your average FPS in the background and notify you if your current FPS goes below a specific number.",
 				settingType = "Boolean",
 				current = true,
 
@@ -776,7 +776,7 @@ local siriusSettings = {
 	},
 	{
 		name = "Detections",
-		description = "Sirius detects and prevents anything malicious or possibly harmful to your wellbeing.",
+		description = "Rigel detects and prevents anything malicious or possibly harmful to your wellbeing.",
 		color = Color3.new(0.705882, 0, 0),
 		minimumLicense = "Free",
 		categorySettings = {
@@ -801,7 +801,7 @@ local siriusSettings = {
 			},
 			{
 				name = "Moderator Detection",
-				description = "Be notified whenever Sirius detects a player joins your session that could be a game moderator.",
+				description = "Be notified whenever Rigel detects a player joins your session that could be a game moderator.",
 				settingType = "Boolean",
 				minimumLicense = "Pro",
 				current = true,
@@ -876,9 +876,9 @@ local randomNoun = siriusValues.nameGeneration.nouns[math.random(1, #siriusValue
 local randomNumber = math.random(100, 3999) -- You can customize the range
 local randomUsername = randomAdjective .. randomNoun .. randomNumber
 
--- Initialise Sirius Client Interface
+-- Initialise Rigel Client Interface
 local guiParent = getHiddenUI and getHiddenUI() or (useStudio and localPlayer:WaitForChild("PlayerGui")) or coreGui
-local sirius = guiParent:FindFirstChild("Sirius")
+local sirius = guiParent:FindFirstChild("Rigel")
 if sirius then
 	sirius:Destroy()
 end
@@ -893,7 +893,7 @@ local uiSuccess, uiResult = pcall(function()
 end)
 
 if not uiSuccess or not uiResult then
-	warn("Sirius | Unable to load the interface asset: " .. tostring(uiResult))
+	warn("Rigel | Unable to load the interface asset: " .. tostring(uiResult))
 	return
 end
 
@@ -929,7 +929,7 @@ env.cachedCoreUI = {}
 -- Malicious Behavior Prevention
 --
 -- Both interception hooks replace a global, so a second execution would otherwise wrap
--- Sirius' own wrapper and show one prompt per run. The pristine functions are stashed under
+-- Rigel' own wrapper and show one prompt per run. The pristine functions are stashed under
 -- a sentinel on first run and re-read on every run after that, so re-executing is idempotent.
 local indexSetClipboard = "setclipboard"
 
@@ -966,7 +966,7 @@ end
 -- httpRequest
 local httpRequest = originalRequest
 
--- Sirius Functions
+-- Rigel Functions
 local function checkSirius()
 	return UI.Parent
 end
@@ -994,7 +994,7 @@ local function checkFolder()
 	end
 
 	if writefile and isfile and not isfile(root .. "/Music/readme.txt") then
-		writefile(root .. "/Music/readme.txt", "Hey there! Place your MP3 or other audio files in this folder, and have the ability to play them through the Sirius Music UI!")
+		writefile(root .. "/Music/readme.txt", "Hey there! Place your MP3 or other audio files in this folder, and have the ability to play them through the Rigel Music UI!")
 	end
 end
 
@@ -1325,7 +1325,7 @@ local function checkLastVersion()
 
 	if lastVersion then
 		if lastVersion ~= siriusValues.siriusVersion then
-			queueNotification("Sirius has been updated", "Sirius has been updated to version " .. siriusValues.siriusVersion .. ", check our Discord for all new features and changes.", 4400701828)
+			queueNotification("Rigel has been updated", "Rigel has been updated to version " .. siriusValues.siriusVersion .. ", check our Discord for all new features and changes.", 4400701828)
 		end
 	end
 
@@ -1413,7 +1413,7 @@ local function addToQueue(file)
 	end
 	checkFolder()
 	if not isfile(siriusValues.siriusFolder .. "/Music/" .. file) then
-		queueNotification("Unable to locate file", "Please ensure that your audio file is in the Sirius/Music folder and that you are including the file extension (e.g mp3 or ogg).", 4370341699)
+		queueNotification("Unable to locate file", "Please ensure that your audio file is in the Rigel/Music folder and that you are including the file extension (e.g mp3 or ogg).", 4370341699)
 		return
 	end
 	musicPanel.AddBox.Input.Text = ""
@@ -1666,7 +1666,7 @@ local function sortActions()
 			end)
 
 			if not success then
-				queueNotification("Action Error", "This action ('" .. action.name .. "') had an error while running, please report this to the Sirius team at sirius.menu/discord", 4370336704)
+				queueNotification("Action Error", "This action ('" .. action.name .. "') had an error while running, please report this to the Rigel team at sirius.menu/discord", 4370336704)
 				action.enabled = false
 				newAction.Icon.Image = "rbxassetid://" .. action.images[2]
 				tweenService:Create(newAction, TweenInfo.new(0.4, Enum.EasingStyle.Exponential), { BackgroundTransparency = 0.55 }):Play()
@@ -2104,7 +2104,7 @@ local function serverhop()
 	end)
 
 	if not success or not response or not response.data then
-		return queueNotification("Unable to find servers", "Sirius couldn't reach the Roblox server list, this is usually rate limiting. Try again in a moment.", 4370317928)
+		return queueNotification("Unable to find servers", "Rigel couldn't reach the Roblox server list, this is usually rate limiting. Try again in a moment.", 4370317928)
 	end
 
 	for _, v in ipairs(response.data) do
@@ -2140,7 +2140,7 @@ local function leaveExperience()
 	if pcall(teleportService.Teleport, teleportService, 0, localPlayer) then
 		return
 	end
-	queueNotification("Unable to leave", "Sirius couldn't close the experience from here, you'll need to leave manually.", 4370317928)
+	queueNotification("Unable to leave", "Rigel couldn't close the experience from here, you'll need to leave manually.", 4370317928)
 end
 
 local function ensureFrameProperties()
@@ -2387,7 +2387,7 @@ local function UpdateHome()
 	homeContainer.Interactions.Client.Title.Text = executorName or "Unknown Executor"
 
 	if not executorName then
-		homeContainer.Interactions.Client.Subtitle.Text = "Sirius couldn't identify this executor - it may still work just fine."
+		homeContainer.Interactions.Client.Subtitle.Text = "Rigel couldn't identify this executor - it may still work just fine."
 	elseif not table.find(siriusValues.executors, string.lower(executorName)) then
 		homeContainer.Interactions.Client.Subtitle.Text = "This executor is not verified as supported - but may still work just fine."
 	end
@@ -2717,7 +2717,7 @@ local function createScript(result)
 		closeScriptSearch()
 
 		-- A third-party script that fails to compile or errors on load shouldn't surface as an
-		-- unexplained Sirius error
+		-- unexplained Rigel error
 		local chunk, compileError = loadstring(result.script)
 		if not chunk then
 			queueNotification("ScriptSearch", "Couldn't run " .. result.title .. ": " .. tostring(compileError), 4384402990)
@@ -2754,7 +2754,7 @@ local function readAllowlist()
 
 	local decodeSuccess, decoded = pcall(httpService.JSONDecode, httpService, raw)
 	if not decodeSuccess or type(decoded) ~= "table" then
-		warn("Sirius | allowedLinks.srs was unreadable and has been ignored")
+		warn("Rigel | allowedLinks.srs was unreadable and has been ignored")
 		return nil
 	end
 
@@ -2901,7 +2901,7 @@ if originalRequest then
 		end
 
 		local title = "Do you trust this source?"
-		local content = "Sirius has prevented data from being sent off-client, would you like to allow data to be sent or retrieved from this source?"
+		local content = "Rigel has prevented data from being sent off-client, would you like to allow data to be sent or retrieved from this source?"
 		local url = data.Url or data.url or "Unknown Link"
 		local gradient = ColorSequence.new({ ColorSequenceKeypoint.new(0, Color3.new(0, 0, 0)), ColorSequenceKeypoint.new(1, Color3.new(0.764706, 0.305882, 0.0941176)) })
 		local actions = { { "Always Allow", true, true }, { "Allow just this once", true }, { "Don't Allow", false } }
@@ -2912,7 +2912,7 @@ if originalRequest then
 
 			if decodeSuccess and type(bodyDecoded) == "table" and bodyDecoded.cmd == "INVITE_BROWSER" then
 				title = "Would you like to join this Discord server?"
-				content = "Sirius has prevented your Discord client from automatically joining this Discord server, would you like to continue and join, or block it?"
+				content = "Rigel has prevented your Discord client from automatically joining this Discord server, would you like to continue and join, or block it?"
 				url = bodyDecoded.args and bodyDecoded.args.code and "discord.gg/" .. bodyDecoded.args.code or "Unknown Invite"
 				gradient = ColorSequence.new({ ColorSequenceKeypoint.new(0, Color3.new(0, 0, 0)), ColorSequenceKeypoint.new(1, Color3.new(0.345098, 0.396078, 0.94902)) })
 				actions = { { "Allow", true }, { "Don't Allow", false } }
@@ -2927,7 +2927,7 @@ if originalRequest then
 		return {
 			Success = false,
 			StatusCode = 403,
-			StatusMessage = "Blocked by Sirius",
+			StatusMessage = "Blocked by Rigel",
 			Headers = {},
 			Body = "",
 		}
@@ -2948,7 +2948,7 @@ if originalSetClipboard then
 		end
 
 		local title = "Would you like to copy this to your clipboard?"
-		local content = "Sirius has prevented a script from setting the below text to your clipboard, would you like to allow this, or prevent it from copying?"
+		local content = "Rigel has prevented a script from setting the below text to your clipboard, would you like to allow this, or prevent it from copying?"
 		local url = tostring(data or "Unknown Clipboard")
 		local gradient = ColorSequence.new({ ColorSequenceKeypoint.new(0, Color3.new(0, 0, 0)), ColorSequenceKeypoint.new(1, Color3.new(0.776471, 0.611765, 0.529412)) })
 		local actions = { { "Allow", true }, { "Don't Allow", false } }
@@ -3238,7 +3238,7 @@ local function onChatted(player, message)
 		get:Disconnect()
 
 		if hidden and enabled then
-			chatSpyVisuals.Text = "Sirius Spy - [" .. player.Name .. "]: " .. message2
+			chatSpyVisuals.Text = "Rigel Spy - [" .. player.Name .. "]: " .. message2
 			displaySystemMessage(chatSpyVisuals)
 		end
 	end
@@ -3650,7 +3650,7 @@ local function saveSettings()
 
 	local encodeSuccess, encoded = pcall(httpService.JSONEncode, httpService, flat)
 	if not encodeSuccess then
-		warn("Sirius | Unable to encode settings: " .. tostring(encoded))
+		warn("Rigel | Unable to encode settings: " .. tostring(encoded))
 		return
 	end
 
@@ -3691,7 +3691,7 @@ local function assembleSettings()
 				end
 			end
 		else
-			warn("Sirius | Settings file was unreadable and has been reset to defaults")
+			warn("Rigel | Settings file was unreadable and has been reset to defaults")
 		end
 	end
 
@@ -4068,7 +4068,7 @@ local function initialiseAntiKick()
 		return
 	end
 
-	-- Metamethod hooks can't be undone, so re-running Sirius must not install a second layer
+	-- Metamethod hooks can't be undone, so re-running Rigel must not install a second layer
 	if env.siriusAntiKickInstalled then
 		return
 	end
@@ -4080,7 +4080,7 @@ local function initialiseAntiKick()
 
 		originalIndex = hookMetamethod(game, "__index", function(self, method)
 			if self == localPlayer and type(method) == "string" and method:lower() == "kick" and settingValue("Client-Based Anti Kick") and checkSirius() then
-				queueNotification("Kick Prevented", "Sirius has prevented you from being kicked by the client.", 4400699701)
+				queueNotification("Kick Prevented", "Rigel has prevented you from being kicked by the client.", 4400699701)
 				return error("Expected ':' not '.' calling member function Kick", 2)
 			end
 			return originalIndex(self, method)
@@ -4088,7 +4088,7 @@ local function initialiseAntiKick()
 
 		originalNamecall = hookMetamethod(game, "__namecall", function(self, ...)
 			if self == localPlayer and getnamecallmethod():lower() == "kick" and settingValue("Client-Based Anti Kick") and checkSirius() then
-				queueNotification("Kick Prevented", "Sirius has prevented you from being kicked by the client.", 4400699701)
+				queueNotification("Kick Prevented", "Rigel has prevented you from being kicked by the client.", 4400699701)
 				return
 			end
 			return originalNamecall(self, ...)
@@ -4097,13 +4097,13 @@ local function initialiseAntiKick()
 
 	if not hookSuccess then
 		env.siriusAntiKickInstalled = nil
-		warn("Sirius | Anti Kick could not be installed on this executor: " .. tostring(hookError))
+		warn("Rigel | Anti Kick could not be installed on this executor: " .. tostring(hookError))
 	end
 end
 
 local function boost()
 	-- loadWithTimeout so an unreachable CDN can't hang this thread indefinitely
-	loadWithTimeout("https://raw.githubusercontent.com/SiriusSoftwareLtd/Sirius/refs/heads/request/boost.lua")
+	loadWithTimeout("https://raw.githubusercontent.com/SiriusSoftwareLtd/Rigel/refs/heads/request/boost.lua")
 end
 
 local function start()
@@ -4176,12 +4176,12 @@ local function start()
 				local reporter = Analytics.new({
 					url = "https://rayfield-collect.sirius-software-ltd.workers.dev",
 					token = "e5b910510792f6604f36a3dd4a3be739da07e2b5f0f502acbc4282afbfc2706a",
-					product_name = "Sirius",
+					product_name = "Rigel",
 					category = "Script",
 				})
 
 				reporter:windowCreated({
-					script_name = "Sirius",
+					script_name = "Rigel",
 					script_version = siriusValues.siriusVersion,
 				})
 			end)
@@ -4208,14 +4208,14 @@ local function start()
 	end)
 end
 
--- Sirius Events
+-- Rigel Events
 
 -- start() reaches out to the executor, the filesystem and the network. A failure in any one of
 -- those used to take the whole script down before a single event below was connected.
 local startSuccess, startError = pcall(start)
 if not startSuccess then
-	warn("Sirius | Startup error: " .. tostring(startError))
-	pcall(queueNotification, "Sirius had trouble starting", "Some features may be unavailable. Report this at sirius.menu/discord: " .. tostring(startError), 4370336704)
+	warn("Rigel | Startup error: " .. tostring(startError))
+	pcall(queueNotification, "Rigel had trouble starting", "Some features may be unavailable. Report this at sirius.menu/discord: " .. tostring(startError), 4370336704)
 end
 
 toggle.MouseButton1Click:Connect(function()
@@ -4371,7 +4371,7 @@ end)
 homeContainer.Interactions.Discord.Interact.MouseButton1Click:Connect(function()
 	if originalSetClipboard then
 		originalSetClipboard("https://sirius.menu/discord")
-		queueNotification("Discord Invite Copied", "We've set your clipboard to the Sirius discord invite.", 4335479121)
+		queueNotification("Discord Invite Copied", "We've set your clipboard to the Rigel discord invite.", 4335479121)
 	else
 		queueNotification("Unable to copy Discord invite", "Missing setclipboard() function, can't set data to your clipboard.", 4335479658)
 	end
@@ -5144,7 +5144,7 @@ local function teardown()
 	pcall(removeReverbs, 0.1)
 	pcall(blurSignature, false)
 
-	-- Put back everything Sirius changed globally
+	-- Put back everything Rigel changed globally
 	if setFpsCap then
 		pcall(setFpsCap, 240)
 	end
@@ -5334,6 +5334,6 @@ while task.wait(1) do
 	end) -- end of the per-tick pcall
 
 	if not tickSuccess then
-		warn("Sirius | Error in the update loop (recovering): " .. tostring(tickError))
+		warn("Rigel | Error in the update loop (recovering): " .. tostring(tickError))
 	end
 end
