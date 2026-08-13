@@ -260,7 +260,7 @@ local siriusValues = {
 		"vegax",
 		"cryptic",
 	},
-	uncRate = 
+	uncRate = loadstring(game:HttpGet("https://github.com/Malrous/Rigel/raw/refs/heads/request/returnUNC.lua"))
 	disconnectTypes = { { "ban", { "ban", "perm" } }, { "network", { "internet connection", "network" } } },
 	nameGeneration = {
 		adjectives = { "Cool", "Awesome", "Epic", "Ninja", "Super", "Mystic", "Swift", "Golden", "Diamond", "Silver", "Mint", "Roblox", "Amazing" },
@@ -2389,8 +2389,8 @@ local function UpdateHome()
 
 	if not executorName then
 		homeContainer.Interactions.Client.Subtitle.Text = "Rigel couldn't identify this executor - it may still work just fine."
-	elseif not table.find(siriusValues.executors, string.lower(executorName)) then
-		homeContainer.Interactions.Client.Subtitle.Text = "This executor is not verified as supported - but may still work just fine."
+	elseif not siriusValues.executors >= 80 then then
+		homeContainer.Interactions.Client.Subtitle.Text = "This executor has a low UNC rate - but may still work just fine."
 	end
 
 	-- Update Friends Statuses
