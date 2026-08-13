@@ -444,7 +444,31 @@ local siriusValues = {
 			color = Color3.fromRGB(62, 94, 170),
 			enabled = false,
 			rotateWhileEnabled = false,
-			callback = function() end,
+			callback = function()
+				if value then
+                    visibilityConn = runService.Heartbeat:Connect(function()
+                        local character = localPlayer.Character
+                        local humanoid = character:FindFirstChildOfClass("Humanoid")
+                        if character then
+                            for _, visiPart in pairs(character:GetDescendants()) do
+                                visiPart.Transparency = value and 0.5 or 0
+                            end
+                            local visibilityOCF = character.PrimaryPart.CFrame
+                            local visibilityOOS = humanoid.CameraOffset
+                            local visibilityNCF = visibilityOCF * CFrame.new(0,2048,0)
+                            character.PrimaryPart.CFrame = visibilityNCF
+                            humanoid.CameraOffset = visibilityNCF:ToObjectSpace(CFrame.new(visibilityOCF.Position)).Position
+                            runService.RenderStepped:Wait()
+                            hrp.CFrame = visibilityOCF
+                            humanoid.CameraOffset = visibilityOOS
+                        end
+                    end)
+                else
+                    if visibilityConn then
+                        visibilityConn:Disconnect()
+                    end
+                end
+			end,
 		},
 	},
 	sliders = {
